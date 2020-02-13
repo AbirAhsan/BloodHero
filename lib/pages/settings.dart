@@ -1,5 +1,4 @@
 import 'package:bloodhero/widgets/drawer.dart';
-import 'package:bloodhero/widgets/exitpopup.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
@@ -13,7 +12,6 @@ class _SettingsState extends State<Settings> {
     return WillPopScope(
         onWillPop: () {
           print("Hey I am Dialog Box");
-          ExitPopUp();
         },
         child: Scaffold(
           appBar: AppBar(
