@@ -1,5 +1,6 @@
 import 'package:bloodhero/widgets/drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:bloodhero/widgets/form.dart';
 
 class Registration extends StatefulWidget {
   @override
@@ -14,18 +15,16 @@ class _RegistrationState extends State<Registration> {
           print("Hey I am Dialog Box");
         },
         child: Scaffold(
-            appBar: AppBar(
-              title: Text("Registration"),
-              backgroundColor: Colors.deepOrange,
-            ),
-            drawer: DrawerApp(),
-            body: ListView(
-              children: <Widget>[
-                Card(child: Text("Name:")),
-                Card(child: Text("Email Addrees:")),
-                Card(child: Text("Phone Number:")),
-                Card(child: Text("Blood Group:")),
-              ],
-            )));
+          appBar: AppBar(
+            title: Text("Registration"),
+            backgroundColor: Colors.deepOrange,
+          ),
+          drawer: DrawerApp(),
+          body: ListView(
+            children: <Widget>[
+              FormPage(),
+            ],
+          )
+        ));
   }
 }
