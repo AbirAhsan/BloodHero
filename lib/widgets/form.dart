@@ -43,6 +43,7 @@ class _FormPageState extends State<FormPage> {
                 autovalidate: true,
                 validator: (String value) {
                   if (value.trim().length == 0) return ("Name Is Required");
+                  return value;
                 },
                 onSaved: (value) {
                   this.name = value;
@@ -56,6 +57,7 @@ class _FormPageState extends State<FormPage> {
                 validator: (String value) {
                   if (value.length < 11)
                     return ("Phone number must be 11 digit");
+                  return value;
                 },
                 onSaved: (value) {
                   this.phone = value;
@@ -66,6 +68,7 @@ class _FormPageState extends State<FormPage> {
                 decoration: InputDecoration(labelText: "Email Address"),
                 validator: (value) {
                   if (value.length == 0) return ("Email Address is Required");
+                  return value;
                 },
                 onSaved: (value) {
                   this.address = value;
@@ -73,9 +76,8 @@ class _FormPageState extends State<FormPage> {
               ),
               DropdownButtonFormField(
                   validator: (value) {
-                    if (value.length == 0) {
-                      return ("Blood Group is required");
-                    }
+                    if (value.length == 0) return ("Blood Group is required");
+                    return value;
                   },
                   hint: Text("Select Your Blood Group"),
                   value: this.bloodGroup,
@@ -83,9 +85,8 @@ class _FormPageState extends State<FormPage> {
                     setState(() {
                       this.bloodGroup = value;
                     });
-                  }, 
+                  },
                   items: [
-                    
                     DropdownMenuItem(value: "A +ve", child: Text("A +ve")),
                     DropdownMenuItem(value: "A -ve", child: Text("A -ve")),
                     DropdownMenuItem(value: "B +ve", child: Text("B +ve")),

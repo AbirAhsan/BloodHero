@@ -12,6 +12,7 @@ class _BloodDonerState extends State<BloodDoner> {
     return WillPopScope(
         onWillPop: () {
           print("Hey I am Dialog Box");
+          return;
         },
         child: Scaffold(
             appBar: AppBar(
@@ -23,7 +24,7 @@ class _BloodDonerState extends State<BloodDoner> {
               children: <Widget>[
                 Card(
                   child: Text("Welcome to Honorable Doner Page"),
-                )
+                ),
               ],
             )));
   }

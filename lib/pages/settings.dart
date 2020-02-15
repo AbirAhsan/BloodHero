@@ -12,6 +12,7 @@ class _SettingsState extends State<Settings> {
     return WillPopScope(
         onWillPop: () {
           print("Hey I am Dialog Box");
+          return;
         },
         child: Scaffold(
           appBar: AppBar(

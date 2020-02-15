@@ -12,6 +12,7 @@ class _AboutUsState extends State<AboutUs> {
     return WillPopScope(
         onWillPop: () {
           print("Hey I am Dialog Box");
+          return;
         },
         child: Scaffold(
           appBar: AppBar(
