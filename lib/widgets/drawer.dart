@@ -3,6 +3,7 @@ import 'package:bloodhero/pages/people.dart';
 import 'package:bloodhero/pages/registration.dart';
 import 'package:bloodhero/pages/settings.dart';
 import 'package:bloodhero/pages/home.dart';
+import 'package:bloodhero/widgets/exitpop.dart';
 import 'package:flutter/material.dart';
 
 class DrawerApp extends StatefulWidget {
@@ -32,8 +33,10 @@ class _DrawerAppState extends State<DrawerApp> {
                     ),
                     title: Text("Home", style: TextStyle(color: Colors.white)),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ExitPopUp(HomePage())));
                     },
                   ),
                   SizedBox(
@@ -50,7 +53,7 @@ class _DrawerAppState extends State<DrawerApp> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => BloodDoner()));
+                              builder: (context) => ExitPopUp(BloodDoner())));
                     },
                   ),
                   SizedBox(
@@ -67,7 +70,7 @@ class _DrawerAppState extends State<DrawerApp> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Registration()));
+                              builder: (context) => ExitPopUp(Registration())));
                     },
                   ),
                   SizedBox(
@@ -81,8 +84,10 @@ class _DrawerAppState extends State<DrawerApp> {
                     title:
                         Text("Settings", style: TextStyle(color: Colors.white)),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => Settings()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ExitPopUp(Settings())));
                     },
                   ),
                   SizedBox(height: 5.0),
@@ -94,8 +99,10 @@ class _DrawerAppState extends State<DrawerApp> {
                     title:
                         Text("About Us", style: TextStyle(color: Colors.white)),
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => AboutUs()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ExitPopUp(AboutUs())));
                     },
                   )
                 ],

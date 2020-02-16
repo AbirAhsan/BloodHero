@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:bloodhero/pages/home.dart';
+import 'package:bloodhero/widgets/exitpop.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
         Duration(seconds: 5),
         () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage())));
+            context, MaterialPageRoute(builder: (context) => ExitPopUp(HomePage()))));
   }
 
   @override

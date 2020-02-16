@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+
 class FormPage extends StatefulWidget {
   @override
   _FormPageState createState() => _FormPageState();
@@ -75,11 +76,11 @@ class _FormPageState extends State<FormPage> {
                 },
               ),
               DropdownButtonFormField(
+                  hint: Text("Select Your Blood Group"),
                   validator: (value) {
                     if (value.length == 0) return ("Blood Group is required");
                     return value;
                   },
-                  hint: Text("Select Your Blood Group"),
                   value: this.bloodGroup,
                   onChanged: (value) {
                     setState(() {

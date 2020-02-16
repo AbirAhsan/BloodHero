@@ -9,23 +9,18 @@ class BloodDoner extends StatefulWidget {
 class _BloodDonerState extends State<BloodDoner> {
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-        onWillPop: () {
-          print("Hey I am Dialog Box");
-          return;
-        },
-        child: Scaffold(
-            appBar: AppBar(
-              title: Text("Honorable Doner"),
-              backgroundColor: Colors.deepOrange,
+    return Scaffold(
+        appBar: AppBar(
+          title: Text("Honorable Doner"),
+          backgroundColor: Colors.deepOrange,
+        ),
+        drawer: DrawerApp(),
+        body: ListView(
+          children: <Widget>[
+            Card(
+              child: Text("Welcome to Honorable Doner Page"),
             ),
-            drawer: DrawerApp(),
-            body: ListView(
-              children: <Widget>[
-                Card(
-                  child: Text("Welcome to Honorable Doner Page"),
-                ),
-              ],
-            )));
+          ],
+        ));
   }
 }
