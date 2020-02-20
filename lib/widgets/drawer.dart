@@ -6,12 +6,7 @@ import 'package:bloodhero/pages/home.dart';
 import 'package:bloodhero/widgets/exitpop.dart';
 import 'package:flutter/material.dart';
 
-class DrawerApp extends StatefulWidget {
-  @override
-  _DrawerAppState createState() => _DrawerAppState();
-}
-
-class _DrawerAppState extends State<DrawerApp> {
+class DrawerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -53,7 +48,7 @@ class _DrawerAppState extends State<DrawerApp> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ExitPopUp(BloodDoner())));
+                              builder: (context) => ExitPopUp(BloodDonor())));
                     },
                   ),
                   SizedBox(

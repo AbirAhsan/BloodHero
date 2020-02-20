@@ -1,12 +1,12 @@
 import 'package:bloodhero/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
-class BloodDoner extends StatefulWidget {
+class BloodDonor extends StatefulWidget {
   @override
   _BloodDonerState createState() => _BloodDonerState();
 }
 
-class _BloodDonerState extends State<BloodDoner> {
+class _BloodDonerState extends State<BloodDonor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

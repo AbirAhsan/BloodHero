@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-
 class FormPage extends StatefulWidget {
   @override
   _FormPageState createState() => _FormPageState();
@@ -34,7 +33,11 @@ class _FormPageState extends State<FormPage> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.all(10.0),
-      child: Form(
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: Form(
           key: formKey,
           child: Column(
             children: <Widget>[
@@ -116,7 +119,9 @@ class _FormPageState extends State<FormPage> {
                 ],
               )
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
