@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
           Container(
               height: 200.0,
               child: Text(
-                "Hey, Welcome to Blood Hero",
+                "Hey, Welcome                to Blood Hero",
                 style: TextStyle(color: Colors.white),
               ))
         ],

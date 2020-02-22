@@ -69,6 +69,7 @@ class _FormPageState extends State<FormPage> {
               ),
               TextFormField(
                 controller: addressCtrl,
+                keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(labelText: "Email Address"),
                 validator: (value) {
                   if (value.length == 0) return ("Email Address is Required");

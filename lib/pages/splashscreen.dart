@@ -54,10 +54,16 @@ class _SplashScreenState extends State<SplashScreen> {
                               fontSize: 40,
                               fontWeight: FontWeight.bold),
                         ),
-                        Padding(padding: EdgeInsets.only(top: 5)),
+                        Padding(
+                            padding: EdgeInsets.only(
+                          top: 5,
+                        )),
                         Text(
-                          "Developed by \n Abir Ahsan",
-                          style: TextStyle(color: Colors.white),
+                          "       Developed by \n       \t         Abir Ahsan",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: "AlexBrush",
+                              fontSize: 20.0),
                         )
                       ],
                     ))),

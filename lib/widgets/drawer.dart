@@ -1,4 +1,5 @@
 import 'package:bloodhero/pages/aboutus.dart';
+import 'package:bloodhero/pages/loginpage.dart';
 import 'package:bloodhero/pages/people.dart';
 import 'package:bloodhero/pages/registration.dart';
 import 'package:bloodhero/pages/settings.dart';
@@ -98,6 +99,21 @@ class DrawerApp extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => ExitPopUp(AboutUs())));
+                    },
+                  ),
+                  SizedBox(height: 5.0),
+                  ListTile(
+                    leading: Icon(
+                      Icons.exit_to_app,
+                      color: Colors.white,
+                    ),
+                    title:
+                        Text("Log Out", style: TextStyle(color: Colors.white)),
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ExitPopUp(LoginPage())));
                     },
                   )
                 ],
