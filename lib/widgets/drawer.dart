@@ -16,7 +16,15 @@ class DrawerApp extends StatelessWidget {
             color: Colors.black38,
             child: ListView(children: <Widget>[
               DrawerHeader(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        "./assets/hand.jpg",
+                      ),
+                    ),
+                  ),
                   child: UserAccountsDrawerHeader(
+                      decoration: BoxDecoration(color: Colors.transparent),
                       arrowColor: Colors.white,
                       accountName: Text("Abir Ahsan"),
                       accountEmail: Text("abirahsan122@gmail.com"))),
@@ -43,7 +51,7 @@ class DrawerApp extends StatelessWidget {
                       Icons.people,
                       color: Colors.white,
                     ),
-                    title: Text("Blood Doner",
+                    title: Text("Blood Donor",
                         style: TextStyle(color: Colors.white)),
                     onTap: () {
                       Navigator.push(

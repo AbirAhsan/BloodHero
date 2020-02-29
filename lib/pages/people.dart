@@ -20,6 +20,7 @@ class _BloodDonerState extends State<BloodDonor> {
             Card(
               child: Text("Welcome to Honorable Doner Page"),
             ),
+            Image.network("https://image.freepik.com/free-vector/shining-circle-purple-lighting-isolated-dark-background_1441-2396.jpg"),
           ],
         ));
   }
