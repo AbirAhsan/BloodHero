@@ -16,10 +16,18 @@ class _RegistrationState extends State<Registration> {
           backgroundColor: Colors.deepOrange,
         ),
         drawer: DrawerApp(),
-        body: ListView(
-          children: <Widget>[
-            FormPage(),
-          ],
+        body: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            FocusScope.of(context).requestFocus(
+              FocusScopeNode(),
+            );
+          },
+          child: ListView(
+            children: <Widget>[
+              FormPage(),
+            ],
+          ),
         ));
   }
 }

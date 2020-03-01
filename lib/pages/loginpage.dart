@@ -16,45 +16,48 @@ class LoginPage extends StatelessWidget {
             fit: BoxFit.fill,
           ),
           Container(
-            child: ListView(
-              children: <Widget>[
-                Stack(
-                  fit: StackFit.loose,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.center,
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * (.5),
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 50.0,
-                          child: Icon(
-                            Icons.local_hospital,
-                            color: Colors.red,
-                            size: 80.0,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                FocusScope.of(context).requestFocus(
+                  FocusScopeNode(),
+                );
+              },
+              child: ListView(
+                children: <Widget>[
+                  Stack(
+                    fit: StackFit.loose,
+                    children: <Widget>[
+                      Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * (.5),
+                          child: CircleAvatar(
+                            backgroundColor: Colors.white,
+                            radius: 50.0,
+                            child: Icon(
+                              Icons.local_hospital,
+                              color: Colors.red,
+                              size: 80.0,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * (.3)),
-                        Theme(
-                          data: ThemeData(
-                              brightness: Brightness.dark,
-                              primarySwatch: Colors.teal,
-                              inputDecorationTheme: InputDecorationTheme(
-                                  labelStyle:
-                                      TextStyle(color: Colors.tealAccent))),
-                          child: Padding(
-                            padding: EdgeInsets.all(30.0),
-                            child: GestureDetector(
-                              onTap: () {
-                                FocusScope.of(context)
-                                    .requestFocus(FocusScopeNode());
-                              },
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: <Widget>[
+                          SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * (.3)),
+                          Theme(
+                            data: ThemeData(
+                                brightness: Brightness.dark,
+                                primarySwatch: Colors.teal,
+                                inputDecorationTheme: InputDecorationTheme(
+                                    labelStyle:
+                                        TextStyle(color: Colors.tealAccent))),
+                            child: Padding(
+                              padding: EdgeInsets.all(30.0),
                               child: Form(
                                 child: Column(
                                   children: <Widget>[
@@ -67,8 +70,7 @@ class LoginPage extends StatelessWidget {
                                     TextFormField(
                                       decoration: InputDecoration(
                                           labelText: "Enter Your password"),
-                                      keyboardType:
-                                          TextInputType.visiblePassword,
+                                      obscureText: true,
                                     ),
                                     SizedBox(
                                       height: 30.0,
@@ -94,12 +96,12 @@ class LoginPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
-              ],
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         ],

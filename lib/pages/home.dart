@@ -49,6 +49,10 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: 20.0,
                 ),
+                Container(
+                  child: Card(
+                      child: Text("Hey Welcome to Blood Hero. Do you know?")),
+                ),
                 CarouselSlider(
                   enableInfiniteScroll: true,
                   enlargeCenterPage: true,
