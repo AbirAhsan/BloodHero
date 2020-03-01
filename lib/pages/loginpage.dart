@@ -1,4 +1,5 @@
 import 'package:bloodhero/pages/home.dart';
+import 'package:bloodhero/pages/registration.dart';
 import 'package:bloodhero/widgets/exitpop.dart';
 import 'package:flutter/material.dart';
 
@@ -73,14 +74,19 @@ class LoginPage extends StatelessWidget {
                                       obscureText: true,
                                     ),
                                     SizedBox(
-                                      height: 30.0,
+                                      height: 15.0,
                                     ),
                                     MaterialButton(
-                                        height: 50.0,
-                                        minWidth: 140.0,
+                                        height: 40.0,
+                                        minWidth: 130.0,
                                         color: Colors.teal,
                                         textColor: Colors.white,
-                                        child: Text("Login"),
+                                        child: Text(
+                                          "Login",
+                                          style: TextStyle(
+                                              fontSize: 25,
+                                              fontFamily: "Pacifico"),
+                                        ),
                                         shape: StadiumBorder(),
                                         splashColor: Colors.orange,
                                         onPressed: () => {
@@ -91,6 +97,37 @@ class LoginPage extends StatelessWidget {
                                                           ExitPopUp(
                                                               HomePage())))
                                             }),
+                                    SizedBox(
+                                      height: 5.0,
+                                    ),
+                                    MaterialButton(
+                                      height: 35.0,
+                                      minWidth: 140.0,
+                                      color: Colors.orangeAccent,
+                                      textColor: Colors.white,
+                                      child: ListTile(
+                                        leading: Icon(
+                                          Icons.school,
+                                          color: Colors.white,
+                                        ),
+                                        title: Text("Registration",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 25,
+                                                fontFamily: "Pacifico")),
+                                      ),
+                                      shape: StadiumBorder(),
+                                      splashColor: Colors.orange,
+                                      onPressed: () => {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                Registration(),
+                                          ),
+                                        ),
+                                      },
+                                    ),
                                   ],
                                 ),
                               ),

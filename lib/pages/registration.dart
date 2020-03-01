@@ -1,4 +1,3 @@
-import 'package:bloodhero/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:bloodhero/widgets/form.dart';
 
@@ -15,7 +14,6 @@ class _RegistrationState extends State<Registration> {
           title: Text("Registration"),
           backgroundColor: Colors.deepOrange,
         ),
-        drawer: DrawerApp(),
         body: GestureDetector(
           behavior: HitTestBehavior.opaque,
           onTap: () {
