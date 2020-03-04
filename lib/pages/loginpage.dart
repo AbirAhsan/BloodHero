@@ -1,9 +1,25 @@
 import 'package:bloodhero/pages/home.dart';
 import 'package:bloodhero/pages/registration.dart';
 import 'package:bloodhero/widgets/exitpop.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  //
+  var _loginKey = GlobalKey<FormState>();
+
+  void handleLogin() {
+    if (_loginKey.currentState.validate()) {
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => ExitPopUp(HomePage())));
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,6 +76,7 @@ class LoginPage extends StatelessWidget {
                             child: Padding(
                               padding: EdgeInsets.all(30.0),
                               child: Form(
+                                key: _loginKey,
                                 child: Column(
                                   children: <Widget>[
                                     TextFormField(
@@ -67,36 +84,37 @@ class LoginPage extends StatelessWidget {
                                         labelText: "Enter Your Email",
                                       ),
                                       keyboardType: TextInputType.emailAddress,
+                                      validator: (value) =>
+                                          !EmailValidator.validate(value, true)
+                                              ? "please provide a valid Email"
+                                              : null,
                                     ),
                                     TextFormField(
                                       decoration: InputDecoration(
                                           labelText: "Enter Your password"),
                                       obscureText: true,
+                                      validator: (value) => value.length < 6
+                                          ? "Password is More than 6 digit"
+                                          : null,
                                     ),
                                     SizedBox(
                                       height: 15.0,
                                     ),
                                     MaterialButton(
-                                        height: 40.0,
-                                        minWidth: 130.0,
-                                        color: Colors.teal,
-                                        textColor: Colors.white,
-                                        child: Text(
-                                          "Login",
-                                          style: TextStyle(
-                                              fontSize: 25,
-                                              fontFamily: "Pacifico"),
-                                        ),
-                                        shape: StadiumBorder(),
-                                        splashColor: Colors.orange,
-                                        onPressed: () => {
-                                              Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                      builder: (context) =>
-                                                          ExitPopUp(
-                                                              HomePage())))
-                                            }),
+                                      height: 40.0,
+                                      minWidth: 130.0,
+                                      color: Colors.teal,
+                                      textColor: Colors.white,
+                                      child: Text(
+                                        "Login",
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            fontFamily: "Pacifico"),
+                                      ),
+                                      shape: StadiumBorder(),
+                                      splashColor: Colors.orange,
+                                      onPressed: handleLogin,
+                                    ),
                                     SizedBox(
                                       height: 5.0,
                                     ),

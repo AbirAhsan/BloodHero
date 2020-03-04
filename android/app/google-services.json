@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "361505266996",
+    "firebase_url": "https://bloodhero-238.firebaseio.com",
+    "project_id": "bloodhero-238",
+    "storage_bucket": "bloodhero-238.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:361505266996:android:6424047bd16b2ea07cd961",
+        "android_client_info": {
+          "package_name": "com.venus.bloodhero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "361505266996-jabe2ol16ueaq8rbd1e1a3nrh2mokhis.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBF5nCunjWvbx36TnUiPmG7E4HXPR4aOBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "361505266996-jabe2ol16ueaq8rbd1e1a3nrh2mokhis.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

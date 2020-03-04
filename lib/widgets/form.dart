@@ -1,5 +1,7 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FormPage extends StatefulWidget {
   @override
@@ -7,7 +9,7 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  var formKey = GlobalKey<FormState>();
+  var _formKey = GlobalKey<FormState>();
 
   var nameCtrl = TextEditingController();
   var phoneCtrl = TextEditingController();
@@ -22,8 +24,8 @@ class _FormPageState extends State<FormPage> {
   }
 
   void handleSubmit() {
-    if (formKey.currentState.validate()) {
-      formKey.currentState.save();
+    if (_formKey.currentState.validate()) {
+      _formKey.currentState.save();
       //Do Something(API)
       print("Name is: ${this.name}");
     }
@@ -34,7 +36,7 @@ class _FormPageState extends State<FormPage> {
     return Padding(
       padding: EdgeInsets.all(10.0),
       child: Form(
-        key: formKey,
+        key: _formKey,
         child: Column(
           children: <Widget>[
             TextFormField(
@@ -67,35 +69,39 @@ class _FormPageState extends State<FormPage> {
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(labelText: "Email Address"),
               validator: (value) {
-                if (value.length == 0) return ("Email Address is Required");
+                if (!EmailValidator.validate(value, true))
+                  return ("Email Address is Required");
                 return value;
               },
               onSaved: (value) {
                 this.address = value;
               },
             ),
-            DropdownButtonFormField(
-                hint: Text("Select Your Blood Group"),
-                validator: (value) {
-                  if (value.length == 0) return ("Blood Group is required");
-                  return value;
-                },
-                value: this.bloodGroup,
-                onChanged: (value) {
-                  setState(() {
-                    this.bloodGroup = value;
-                  });
-                },
-                items: [
-                  DropdownMenuItem(value: "A +ve", child: Text("A +ve")),
-                  DropdownMenuItem(value: "A -ve", child: Text("A -ve")),
-                  DropdownMenuItem(value: "B +ve", child: Text("B +ve")),
-                  DropdownMenuItem(value: "B -ve", child: Text("B -ve")),
-                  DropdownMenuItem(value: "AB +ve", child: Text("AB +ve")),
-                  DropdownMenuItem(value: "AB -ve", child: Text("AB -ve")),
-                  DropdownMenuItem(value: "O +ve", child: Text("O +ve")),
-                  DropdownMenuItem(value: "O -ve", child: Text("O -ve"))
-                ]),
+            StreamBuilder<QuerySnapshot>(
+              stream: Firestore.instance.collection("BloodGroup").snapshots(),
+              builder: (context, snapshot) {
+                if (!snapshot.hasData) {
+                  CircularProgressIndicator();
+                } else {
+                  List<DropdownMenuItem> bloodGroupItem = [];
+                  for (int i = 0; i < snapshot.data.documents.length; i++) {
+                    DocumentSnapshot snap = snapshot.data.documents[i];
+                    bloodGroupItem.add(
+                      DropdownMenuItem(
+                        child: Text(
+                          snap.documentID,
+                          style: TextStyle(
+                            color: Colors.blueGrey,
+                          ),
+                        ),
+                        value: "${snap.documentID}",
+                      ),
+                    );
+                  }
+                }
+                return;
+              },
+            ),
             SizedBox(
               height: 10.0,
             ),
