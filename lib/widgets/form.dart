@@ -1,7 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FormPage extends StatefulWidget {
   @override
@@ -77,31 +76,28 @@ class _FormPageState extends State<FormPage> {
                 this.address = value;
               },
             ),
-            StreamBuilder<QuerySnapshot>(
-              stream: Firestore.instance.collection("BloodGroup").snapshots(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  CircularProgressIndicator();
-                } else {
-                  List<DropdownMenuItem> bloodGroupItem = [];
-                  for (int i = 0; i < snapshot.data.documents.length; i++) {
-                    DocumentSnapshot snap = snapshot.data.documents[i];
-                    bloodGroupItem.add(
-                      DropdownMenuItem(
-                        child: Text(
-                          snap.documentID,
-                          style: TextStyle(
-                            color: Colors.blueGrey,
-                          ),
-                        ),
-                        value: "${snap.documentID}",
-                      ),
-                    );
-                  }
-                }
-                return;
-              },
-            ),
+            DropdownButtonFormField(
+                hint: Text("Select Your Blood Group"),
+                validator: (value) {
+                  if (value.length == 0) return ("Blood Group is required");
+                  return value;
+                },
+                value: this.bloodGroup,
+                onChanged: (value) {
+                  setState(() {
+                    this.bloodGroup = value;
+                  });
+                },
+                items: [
+                  DropdownMenuItem(value: "A +ve", child: Text("A +ve")),
+                  DropdownMenuItem(value: "A -ve", child: Text("A -ve")),
+                  DropdownMenuItem(value: "B +ve", child: Text("B +ve")),
+                  DropdownMenuItem(value: "B -ve", child: Text("B -ve")),
+                  DropdownMenuItem(value: "AB +ve", child: Text("AB +ve")),
+                  DropdownMenuItem(value: "AB -ve", child: Text("AB -ve")),
+                  DropdownMenuItem(value: "O +ve", child: Text("O +ve")),
+                  DropdownMenuItem(value: "O -ve", child: Text("O -ve"))
+                ]),
             SizedBox(
               height: 10.0,
             ),

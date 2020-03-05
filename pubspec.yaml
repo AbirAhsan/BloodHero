@@ -18,7 +18,6 @@ environment:
 
 dependencies:
   font_awesome_flutter: ^8.7.0
-  cloud_firestore: ^0.13.4
   flutter:
     sdk: flutter
 
